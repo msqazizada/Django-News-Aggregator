@@ -1,4 +1,4 @@
-# Django-News-Aggregator
+# News Aggregator
 Web Project
 
 project idea:
