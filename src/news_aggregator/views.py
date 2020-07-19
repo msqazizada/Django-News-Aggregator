@@ -23,53 +23,33 @@ def get_match(url, tag, klass):
     return headings_classes
 
 
-# BBC
-for headings in get_match(urls['bbc'], 'a', 'block-link__overlay-link'):
-    if len(headings.text) > 5 and len(bbc) < 5:
-        if urls['bbc'] in headings['href']:
-            bbc.append({'content': headings.text,
-                        'link': headings['href']})
+def get_article_headings(url, tag, klass, lst, link=False):
+    for headings in get_match(url, tag, klass):
+        if link is True:
+            _link = headings.find('a')
+            if len(headings.text) > 5 and len(lst) < 5:
+                if url in _link['href']:
+                    lst.append({'content': headings.text, 'link': _link['href']})
+                else:
+                    lst.append({'content': headings.text, 'link': url + _link['href']})
         else:
-            bbc.append({'content': headings.text,
-                        'link': urls['bbc'] + headings['href']})
-
-
-# CGTN
-for headings in get_match(urls['cgtn'], 'div', 'cg-title'):
-    link = headings.find('a')
-    if len(headings.text) > 5 and len(cgtn) < 5:
-        if urls['cgtn'] in link['href']:
-            cgtn.append({'content': headings.text,
-                         'link': link['href']})
-        else:
-            cgtn.append({'content': headings.text,
-                         'link': urls['cgtn'] + link['href']})
-
-
-# RT
-for headings in get_match(urls['rt'], 'a', 'main-promobox__link'):
-    if len(headings.text) > 5 and len(rt) < 5:
-        if urls['rt'] in headings['href']:
-            rt.append({'content': headings.text,
-                       'link': headings['href']})
-        else:
-            rt.append({'content': headings.text,
-                       'link': urls['rt'] + headings['href']})
-
-
-# TRT
-for headings in get_match(urls['trt'], 'div', 'news-article'):
-    link = headings.find('a')
-    if len(headings.text) > 5 and len(trt) < 5:
-        if urls['trt'] in link['href']:
-            trt.append({'content': headings.text,
-                        'link': link['href']})
-        else:
-            trt.append({'content': headings.text,
-                        'link': urls['trt'] + link['href']})
+            if len(headings.text) > 5 and len(lst) < 5:
+                if url in headings['href']:
+                    lst.append({'content': headings.text, 'link': headings['href']})
+                else:
+                    lst.append({'content': headings.text, 'link': url + headings['href']})
 
 
 def home_view(request):
+    # TRT
+    get_article_headings(urls['trt'], 'div', 'news-article', trt, True)
+    # RT
+    get_article_headings(urls['rt'], 'a', 'main-promobox__link', rt)
+    # CGTN
+    get_article_headings(urls['cgtn'], 'div', 'cg-title', cgtn, True)
+    # BBC
+    get_article_headings(urls['bbc'], 'a', 'block-link__overlay-link', bbc)
+
     context = {
         'rt_news': rt,
         'cgtn_news': cgtn,
