@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+    python:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./src:/ng-app
+        ports:
+            - 8000:8000

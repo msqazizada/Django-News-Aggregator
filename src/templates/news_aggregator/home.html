@@ -3,62 +3,44 @@
 
 <div class="row">
 
-    <div class="col-lg-4  mt-5">
-        <h3>BBC
-            <small class='text-muted'>
-                (<a target="_blank" rel="noopener noreferrer" href="https://www.bbc.com/"
-                    style="color:black">www.bbc.com</a>)
-            </small>
-        </h3>
+    <div class="col-lg-3  mt-5 BBC">
+        <a target="_blank" rel="noopener noreferrer" href="https://www.bbc.com/" style="color:black">
+            <h4>BBC</h4>
+        </a>
         <br>
         {% for news in bbc_news %}
-        <div class="">
-            <a target="_blank" rel="noopener noreferrer" href="{{news.link}}" style="color:black">{{news.content}}</a>
-            <hr>
-        </div>
+        <a target="_blank" rel="noopener noreferrer" href="{{news.link}}" style="color:black">{{ news.content }}</a>
+        <hr>
         {% endfor %}
     </div>
 
-    <div class="col-lg-4  mt-5">
-        <h3>CGTN
-            <small class='text-muted'>
-                (<a target="_blank" rel="noopener noreferrer" href="https://www.cgtn.com/"
-                    style="color:black">www.cgtn.com</a>)
-            </small>
-        </h3>
+    <div class="col-lg-3  mt-5">
+        <a target="_blank" rel="noopener noreferrer" href="https://www.cgtn.com/" style="color:black">
+            <h4>CGTN</h4>
+        </a>
         {% for news in cgtn_news %}
-        <div class="">
-            <a target="_blank" rel="noopener noreferrer" href="{{news.link}}" style="color:black">{{news.content}}</a>
-            <hr>
-        </div>
+        <a target="_blank" rel="noopener noreferrer" href="{{news.link}}" style="color:black">{{ news.content }}</a>
+        <hr>
         {% endfor %}
     </div>
-    <div class="col-lg-4  mt-5">
-        <h3>TRT World
-            <small class='text-muted'>
-                (<a target="_blank" rel="noopener noreferrer" href="https://www.trtworld.com/"
-                    style="color:black">www.trtworld.com</a>)
-            </small>
-        </h3>
+
+    <div class="col-lg-3  mt-5">
+        <a target="_blank" rel="noopener noreferrer" href="https://www.trtworld.com/" style="color:black">
+            <h4>TRT World</h4>
+        </a>
         {% for news in trt_news %}
-        <div class="">
-            <a target="_blank" rel="noopener noreferrer" href="{{news.link}}" style="color:black">{{news.content}}</a>
-            <hr>
-        </div>
+        <a target="_blank" rel="noopener noreferrer" href="{{news.link}}" style="color:black">{{ news.content }}</a>
+        <hr>
         {% endfor %}
     </div>
-    <div class="col-lg-4  mt-5">
-        <h3>RT
-            <small class='text-muted'>
-                (<a target="_blank" rel="noopener noreferrer" href="https://www.rt.com/"
-                    style="color:black">www.rt.com</a>)
-            </small>
-        </h3>
+
+    <div class="col-lg-3  mt-5">
+        <a target="_blank" rel="noopener noreferrer" href="https://www.rt.com/" style="color:black">
+            <h4>RT</h4>
+        </a>
         {% for news in rt_news %}
-        <div class="">
-            <a target="_blank" rel="noopener noreferrer" href="{{news.link}}" style="color:black">{{news.content}}</a>
-            <hr>
-        </div>
+        <a target="_blank" rel="noopener noreferrer" href="{{news.link}}" style="color:black">{{ news.content }}</a>
+        <hr>
         {% endfor %}
     </div>
 </div>
