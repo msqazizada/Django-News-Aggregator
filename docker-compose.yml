@@ -1,11 +1,15 @@
 version: "3.7"
 
 services:
-    python:
+    web:
+        # local registery
+        image: news_aggregator:1
         build:
             context: .
             dockerfile: Dockerfile
-        volumes:
-            - ./src:/ng-app
         ports:
             - 8000:8000
+    web2:
+        # repository on Docker Hub
+        # docker-id/image-name
+        image: salimecmonline/news_aggregator

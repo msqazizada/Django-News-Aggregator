@@ -8,7 +8,40 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="" data-toggle="modal" data-target="#chooseModal">Choose...</a>
+        <a class="nav-link disabled">filter by:</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" data-toggle="modal" data-target="#chooseModal">Country</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">filter by:</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          News Agency
+        </a>
+      <ul class="dropdown-menu checkbox-menu allow-focus" onclick="{event => event.stopPropagation}" aria-labelledby="navbarDropdown">
+          <li class="dp-item">
+            <label>
+              <input type="checkbox" id="checkbox-BBC" onclick="toggle(this, 'BBC')" checked>
+              BBC</label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="checkbox-CGTN" onclick="toggle(this, 'CGTN')" checked>
+              CGTN</label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="checkbox-TRT" onclick="toggle(this, 'TRT')" checked>
+              TRT</label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="checkbox-RT" onclick="toggle(this, 'RT')" checked>
+              RT</label>
+          </li>
+        </ul>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="" data-toggle="modal" data-target="#aboutModal">About</a>
@@ -17,28 +50,6 @@
   </div>
 </nav>
 
-<!-- Choose Modal -->
-<div class="modal fade" id="chooseModal" tabindex="-1" role="dialog" aria-labelledby="chooseModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="chooseModalLabel">Choose</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <label>
-          <input type="checkbox" name="" value="BBC" onclick="toggle()"> BBC</label>
-        <label>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- About Modal -->
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel"
   aria-hidden="true">
